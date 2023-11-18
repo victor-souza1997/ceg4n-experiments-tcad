@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "ceg4n"
+version = "0.1.1"
+description = ""
+authors = ["João Batista Pereira Matos Júnior <matosjunior.jb@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8,<3.11"
+torch = "1.11.0"
+torchvision = "0.12.0"
+ujson = "5.4.0"
+Platypus-Opt = "1.0.4"
+onnx2torch = "1.4.1"
+click = "8.1.3"
+nnequiv = {path = "../libs/nnequiv", develop = true}
+onnx2pytorch = "0.4.1"
+tqdm = "^4.64.0"
+pandas = "^1.4.4"
+choicesenum = "^0.7.0"
+ipython = "^8.5.0"
+psutil = "^5.9.2"
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.6.0"
+isort = "^5.10.1"
+flake8 = "^5.0.4"
+jupyterlab = "^3.4.5"
+PySMT = "^0.9.5"
+sympy = "^1.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+main = "ceg4n.__main__:main"

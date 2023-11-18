@@ -1,0 +1,20 @@
+ESBMC version 6.10.0 64-bit x86_64 linux
+Target: 64-bit little-endian x86_64-unknown-linux with esbmc libc
+file /home/joaobatista/GitHub/ceg4n-experiments/output/abstractions/esbmc/iris_15x2/main_1_03.c: Parsing
+Converting
+Generating GOTO Program
+GOTO program creation time: 0.137s
+GOTO program processing time: 0.005s
+Starting Bounded Model Checking
+Symex completed in: 0.362s (2895 assignments)
+Slicing time: 0.003s (removed 1264 assignments)
+Generated 1 VCC(s), 1 remaining after simplification (1631 assignments)
+No solver specified; defaulting to Boolector
+Encoding remaining VCC(s) using bit-vector arithmetic
+Encoding to solver time: 0.039s
+Solving with solver Boolector 3.2.1
+Encoding to solver time: 0.039s
+Runtime decision procedure: 143.073s
+BMC program time: 143.478s
+
+VERIFICATION SUCCESSFUL

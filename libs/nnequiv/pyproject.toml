@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "nnequiv"
+version = "0.1.0"
+description = ""
+authors = ["João Batista Pereira Matos Júnior <matosjunior.jb@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8,<3.11"
+nnenum = {path = "../nnenum"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^22.6.0"
+isort = "^5.10.1"
+flake8 = "^5.0.4"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
