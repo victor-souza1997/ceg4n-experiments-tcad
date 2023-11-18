@@ -12,7 +12,7 @@ ujson = "5.4.0"
 Platypus-Opt = "1.0.4"
 onnx2torch = "1.4.1"
 click = "8.1.3"
-nnequiv = {path = "../libs/nnequiv", develop = true}
+nnequiv = {path = "./libs/nnequiv", develop = true}
 onnx2pytorch = "0.4.1"
 tqdm = "^4.64.0"
 pandas = "^1.4.4"

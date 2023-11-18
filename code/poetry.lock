@@ -1498,7 +1498,7 @@ threadpoolctl = "3.1.0"
 
 [package.source]
 type = "directory"
-url = "../libs/nnenum"
+url = "libs/nnenum"
 
 [[package]]
 name = "nnequiv"
@@ -1514,7 +1514,7 @@ nnenum = {path = "../nnenum"}
 
 [package.source]
 type = "directory"
-url = "../libs/nnequiv"
+url = "libs/nnequiv"
 
 [[package]]
 name = "notebook"
@@ -3325,4 +3325,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8,<3.11"
-content-hash = "6689f7a6795b8cc91a1693d0818b9d0ae5b7f3f262c4bfd6337c1178bcf0660b"
+content-hash = "15b68d571dfa249cdae6c487a01b1d089a088ac1296fb5252002b05ebc1935e0"
