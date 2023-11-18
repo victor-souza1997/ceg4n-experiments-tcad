@@ -1,6 +1,4 @@
 #!/bin/bash
-rm -rf ./bin \
-    && mkdir -p ./bin
 
 ONNX2C_PATH=$(pwd)/bin
 ESBMC_PATH=$(pwd)/bin

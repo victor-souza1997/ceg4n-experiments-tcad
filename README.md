@@ -22,7 +22,7 @@ export ONNX2C_PATH=$(pwd)/bin \
 ### Using ESBMC
 ```bash
 # ~/ceg4n-experiments/code
-cd ceg4n \
+cd code \
     && poetry run main \
     --benchmark iris_4x2 \
     --optimizer NSGAII \
@@ -35,12 +35,10 @@ cd ceg4n \
 ### Using NNEquiv
 ```bash
 # ~/ceg4n-experiments/code
-cd ceg4n \
-    && poetry run main \
+poetry run main \
     --benchmark iris_4x2 \
     --optimizer NSGAII \
     --verifier NNEQUIV \
     --equivalence TOP \
-    --size 0.03 \
-    && cd ..
+    --size 0.03
 ```
