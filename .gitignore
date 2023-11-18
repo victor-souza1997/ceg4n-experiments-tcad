@@ -154,3 +154,7 @@ abstractions/**
 data/networks/quantized/*.onnx
 data/output
 [lL]ogs
+
+results
+results/*
+results/**
