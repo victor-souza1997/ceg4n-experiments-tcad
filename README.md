@@ -34,7 +34,7 @@ cd code \
 
 ### Using NNEquiv
 ```bash
-# ~/ceg4n-experiments/code
+# ~/code
 poetry run main \
     --benchmark iris_4x2 \
     --optimizer NSGAII \
