@@ -10,6 +10,7 @@ PROPERTIES_FOLDER = Path.cwd().joinpath("data", "properties")
 
 
 def mnist_data(size: Tuple[int, int] = None) -> Tuple[datasets.MNIST, datasets.MNIST]:
+    #print(datasets.MNIST)
     transforms = (
         [ToTensor()]
         if size is None
@@ -41,6 +42,7 @@ def mnist_dataloaders(
     img_size: Tuple[int, int] = None,
 ) -> Dict[str, DataLoader]:
     train_data, test_data = mnist_data(size=img_size)
+
     loaders = {
         "train": DataLoader(
             train_data,

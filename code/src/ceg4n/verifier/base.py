@@ -58,8 +58,10 @@ class Verifier:
         model_provider(equivalence_instance.benchmark).to_onnx(
             filename, equivalence_instance.spec.input_shape
         )
+        
 
         filename = quantized_model_provider.model_file(equivalence_instance.benchmark)
+        
         quantization_strategy.quantize(
             equivalence_instance.benchmark, equivalence_instance.bits_sequence
         ).to_onnx(filename, equivalence_instance.spec.input_shape)
@@ -74,12 +76,14 @@ class Verifier:
 
         try:
             counterexample = self.verify_inner(equivalence_instance)
+            #print("counter example", counterexample)
         except TimeoutError as ex:
             timeout_ = ex
         except TimeoutExpired as ex:
             timeout_ = TimeoutError()
         except Exception as ex:
-            # raise ex
+            #raise ex
+            print("exception", ex)
             exception = ex
         finally:
             signal.alarm(0)
@@ -88,6 +92,6 @@ class Verifier:
         )
 
     def verify_inner(
-        selff, equivalence_instance: EquivalenceInstance
+        self, equivalence_instance: EquivalenceInstance
     ) -> VerificationOutput:
         raise RuntimeError("Should not be called!")

@@ -109,5 +109,6 @@ class _ParamProvider:
 
 
 model_provider = _ParamProvider(path=MODELS_FOLDER)
+#print("model_provider", model_provider)
 original_model_provider = _ParamProvider(path=ORIGINAL_FOLDER)
 quantized_model_provider = _ParamProvider(path=QUANTIZED_FOLDER, suffix="quantized")

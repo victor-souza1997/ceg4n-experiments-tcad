@@ -42,3 +42,8 @@ poetry run main \
     --equivalence TOP \
     --size 0.03
 ```
+
+## Objective
+
+- [ ] Update ESBMC version.
+- [ ] Add new database to the neural network.

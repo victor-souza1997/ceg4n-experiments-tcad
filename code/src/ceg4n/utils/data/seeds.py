@@ -43,6 +43,8 @@ def load_seeds_data():
 
 def seeds_dataloaders():
     train, test = load_seeds_data()
+    #print("train data", train)
+   # print("test", test)
     loader = {
         "train": train,
         "test": test,

@@ -43,9 +43,10 @@ def _run_onnx2c(onnx_path: Path):
     import os
     onnx2c = f'{os.environ["ONNX2C_PATH"]}/onnx2c'
     command = [onnx2c, onnx_path]
-    print(command)
     process = Popen(command, stdout=PIPE, stderr=PIPE, shell=False)
     output, error = process.communicate()
+    if error:
+        print(error)
     return output.decode("utf-8")
 
 
@@ -64,12 +65,16 @@ def save_abstraction(benchmark: str, abstraction_path: Path, spec: EquivalenceSp
 
 def _save_original(benchmark: str, abstraction_path: Path):
     filename = original_model_provider.model_file(benchmark)
+    print(f"filename {filename}")
     original_content = onnx_to_c(filename)
+
+
     original_net = _ORIGINAL_TEMPLATE.format(original_content).replace(
         "entry", "original"
     )
 
     filename = str(abstraction_path.joinpath("original.h"))
+
     with open(filename, "w") as fp:
         fp.writelines(original_net)
         fp.flush()

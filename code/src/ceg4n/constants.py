@@ -4,7 +4,7 @@ from pathlib import Path
 import numpy as np
 import torch
 
-CMD_TEMPLATE = """@esbmc @benchmark --quiet --force-malloc-success --no-bounds-check --no-div-by-zero-check --no-pointer-check --interval-analysis --fixedbv @HEADERS"""
+CMD_TEMPLATE = """@esbmc @benchmark --quiet --force-malloc-success --z3 --no-bounds-check --no-div-by-zero-check --no-pointer-check --interval-analysis --fixedbv @HEADERS"""
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -180,7 +180,7 @@ int main()
     // Call networks
     original(x, original_output);
     quantized(x, quantized_output);
-
+    printf("running C code");
     if(EQUIVALENCE == 0)
     {
         check_top(original_output, quantized_output);

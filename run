@@ -1,0 +1,17 @@
+#!/bin/sh
+
+
+export ONNX2C_PATH=$(pwd)/bin \
+    && export PATH="${ONNX2C_PATH}:${PATH}" \
+    && export ESBMC_PATH=$(pwd)/bin \
+    && export PATH="${ESBMC_PATH}/bin:${PATH}"
+
+
+cd code \
+    && poetry run main \
+    --benchmark seeds_2x1 \
+    --optimizer NSGAII \
+    --verifier ESBMC \
+    --equivalence TOP \
+    --size 0.03 \
+    && cd ..

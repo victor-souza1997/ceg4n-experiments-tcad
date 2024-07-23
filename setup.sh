@@ -25,8 +25,9 @@ cd /tmp/
 rm -rf /tmp/onnx2c \
  && git clone https://github.com/kraiskil/onnx2c.git \
   && cd onnx2c \
-  && git checkout 1d637ab -b build-tmp \
+  && git checkout -b build-tmp \
   && git submodule update --init
+  #&& git checkout 1d637ab -b build-tmp \
 
 mkdir build \
   && cd build \

@@ -8,6 +8,7 @@ from .seeds import seeds_dataloaders
 
 
 def data_provider(benchmark: str, batch_size: int):
+    print(f"in data_provider {benchmark} is called")
     if "iris" in benchmark.lower():
         return iris_dataloaders()
     if "seeds" in benchmark.lower():

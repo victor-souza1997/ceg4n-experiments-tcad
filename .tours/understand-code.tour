@@ -1,0 +1,11 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "understand code",
+  "steps": [
+    {
+      "title": "Introduction",
+      "description": "Understaing how the NN works.\n\nIt seems that the code reads the data from withing python, not from outer files. But outer are also present."
+    }
+  ],
+  "ref": "explorer/read-new-model"
+}

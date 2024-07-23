@@ -160,6 +160,8 @@ class NNEquivVerifier(Verifier):
         Timers.toc("main_init")
         Timers.tic("net_load")
         networks = _load_networks(equivalence_instance=equivalence_instance)
+        #print("networks", networks)
+        
         Timers.toc("net_load")
         Timers.tic("property_create")
         equivalence_property = _get_equivalence_property(

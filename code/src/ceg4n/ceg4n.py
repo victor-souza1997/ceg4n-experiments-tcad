@@ -97,6 +97,7 @@ class _Iteration:
         self._verification_counter_examples = verification_counter_examples
         self._optimizer = optimizer
         self._verifier = verifier
+        print("Interaction is called")
 
     @property
     def verifier(self):
@@ -176,6 +177,8 @@ class _Iteration:
             for spec in self.specs
         ]
 
+        print(f"equivalence_instances{equivalence_instances}")
+
         (valid_ces, invalid_ces), bits_sequence, failure = self.loop(
             equivalence_instances, bits_sequence
         )
@@ -194,17 +197,19 @@ class _Iteration:
             )
 
             verification_status = self.verifier.verify(equivalence_instance)
-
             (counterexample, timeout, failure) = (
                 verification_status.counterexample,
                 verification_status.timeout,
                 verification_status.failure,
             )
+           # print("counter example", counter_example)
 
             if timeout is not None:
+                print("timeout")
                 return ([], []), bits_sequence, 1
 
             if failure is not None:
+                print("failure", failure)
                 return ([], []), bits_sequence, 2
 
             if counterexample is None:
@@ -228,6 +233,7 @@ class _Iteration:
     def _is_valid(self, counter_example: CounterExample):
         cex, y = counter_example.x, counter_example.y
         pred, quant_pred = _make_prediction(self._run_instance, cex, torch.float32)
+        print("pred, quant_pred", pred, quant_pred)
         if self._run_instance.top:
             pred_y = np.argmax(pred)
             quant_pred_y = np.argmax(quant_pred)
@@ -481,6 +487,7 @@ class ExperimentRunner:
             return -1, -1
         accuracy = 0
         loss = 0
+        print("data_provider is called")
         test_loader = data_provider(benchmark, 32)["test"]
         for batch_id, (x, y) in enumerate(test_loader):
             pred = model(x)
@@ -507,6 +514,7 @@ def _profile_model(benchmark: str):
     def neurons(layer):
         weight_shape = torch.tensor(layer.weight.data.shape).prod()
         bias_shape = torch.tensor(layer.bias.data.shape).prod()
+        print(f"in profile model {benchmark} {weight_shape} {bias_shape}")
         return (weight_shape + bias_shape).int().item()
 
     a = [
@@ -528,7 +536,7 @@ def run(experiment_instance: ExperimentInstance):
 
     #
     verifier = verifier_provider(experiment_instance.verifier)
-
+    print("verifier", verifier)
     #
     run_instance = get_run_instance(experiment_instance)
     runner = ExperimentRunner(optimizer=optimizer, verifier=verifier)

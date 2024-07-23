@@ -29,6 +29,7 @@ def predict(ort_session, x_t):
     return np.argmax(ort_outs[0]), ort_outs[0]
 
 
+
 def _main(
     model_name: str,
     equivalence_type: str = "top",
@@ -48,6 +49,7 @@ def _main(
 
     model = load_model_parameters(model_path).model.eval()
     ort_session = onnxruntime.InferenceSession(model_path)
+    
     main(
         model_name,
         model,
@@ -61,6 +63,8 @@ def _main(
         output_epsilon,
         output_top,
     )
+    
+
 
 
 if __name__ == "__main__":

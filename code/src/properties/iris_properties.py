@@ -18,6 +18,7 @@ from ceg4n.utils.data import iris_dataloaders
 NETWORKS_FOLDER = Path.cwd().joinpath("data", "networks", "original")
 PROPERTIES_FOLDER = Path.cwd().joinpath("data", "properties")
 
+"""
 
 def _main(
     model_name: str,
@@ -53,6 +54,7 @@ def _main(
         output_top,
     )
 
+"""
 
 if __name__ == "__main__":
     train_options = [

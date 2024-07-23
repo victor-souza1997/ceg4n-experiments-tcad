@@ -19,15 +19,18 @@ class ESBMCChecker:
         esbmc = "esbmc"
         filename = benchmark_path.joinpath(property_name)
         headers = str(benchmark_path.joinpath("."))
+        #print(headers)
+        print("ESBMC was called")
         cmd = (
             CMD_TEMPLATE.replace("@benchmark", str(filename))
             .replace("@esbmc", esbmc)
             .replace("@HEADERS", f"-I{headers}")
         )
         # cmd = cmd.split(" ")
+        
         std_output_file = benchmark_path.joinpath(f"{property_name}-output.txt")
         std_error_file = benchmark_path.joinpath(f"{property_name}-error.txt")
-
+        #print(f"std_error {std_error_file}")
         with open(std_output_file, "w") as stdout_fp, open(
             std_error_file, "w"
         ) as stderr_fp:
